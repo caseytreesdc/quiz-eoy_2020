@@ -1,14 +1,14 @@
 const question = document.getElementById("question");
 const questionImage = document.getElementById("questionImage");
 const explanation = document.getElementById("explanation");
-const choices = Array.from( document.getElementsByClassName("choice-text"));
-const progressText = document.getElementById('progressText');
-const scoreText = document.getElementById('score');
+const choices = Array.from(document.getElementsByClassName("choice-text"));
+const progressText = document.getElementById("progressText");
+const scoreText = document.getElementById("score");
 const nextquestion = document.getElementById("nextquestion");
 const choicecontainer = document.getElementsByClassName("choice-container");
 const progressBarFull = document.getElementById("progressBarFull");
 
-console.log(choices, choices[3].parentElement);
+// console.log(choices, choices[3].parentElement);
 
 let currentQuestion = {};
 let acceptingAnswers = false;
@@ -17,160 +17,157 @@ let questionCounter = 0;
 let availableQuestions = [];
 
 let questions = [
-    {
-    questionImage: "<img alt='aerial shot of tidal basin' src='images/facts-air.jpg' width='100%'>",
-    question: "Poor air quality is a common problem in many urban areas. How many tons of pollutants are removed from the air each year by D.C.’s trees?",
-    explanation: "At a time when hospital space is in high demand, this leads to 1006 fewer acute respiratory incidences, 4 fewer hospital visits and 2 fewer deaths per year.",
-    choice1: "619",
-    choice2: "301", 
-    choice3: "548",
-    choice4: "111",
-    answer: 1
-    },
-    {
-    questionImage: "<img alt='big tree trunks!' src='images/facts-carbon.jpg' width='100%'>",
-    question: "Trees sequester carbon in new growth each year and the amount of carbon sequestered annually increases with the size and health of the trees. How much carbon is stored in D.C.’s trees each year?",
-    explanation: "During one year a single mature tree will absorb more than 48 pounds of CO2.", 
-    choice1: "53,400 tons",
-    choice2: "26,700 tons", 
-    choice3: "31,300 tons",
-    choice4: "18,900 tons",
-    answer: 2, 
-    },
-    {
-    questionImage: "<img alt='a beautiful magnolia near the house' src='images/facts-ac.jpg' width='100%'>",
-    question: "We’re approaching another hot summer. How much can carefully positioned trees reduce a household’s energy consumption for air conditioning?",
-    explanation: "The proper placement of only three trees (like those you can get for your yard through our residential planting programs) can save an average household between $100 and $250 in energy costs annually.",
-    choice1: "30%",
-    choice2: "20%", 
-    choice3: "90%",
-    choice4: "15%",
-    answer: 1
-    },
-    {
-    questionImage: "<img alt='tulip leaves in the fall' src='images/facts-tulip.jpg' width='100%'>",
-    question: "What species of tree as a population sequesters the most carbon in D.C.?",
-    explanation: "These fast-growing large canopy trees account for 2,765 tons of net carbon sequestration each year in D.C. all by themselves!",
-    choice1: "American Beech",
-    choice2: "Box Elder", 
-    choice3: "Sweetgum",
-    choice4: "Tulip Tree",
-    answer: 4
-    },
-    {
-    questionImage: "<img alt='trees in downtown' src='images/facts-health.jpg' width='100%'>",
-    question: "Of trees surveyed in D.C., what percentage were found to be in good to excellent health?",
-    explanation: "Tree health helps determine how resilient the canopy can be when faced with various pests and diseases.",
-    choice1: "75%",
-    choice2: "62%", 
-    choice3: "91%",
-    choice4: "83%",
-    answer: 4
-    },
-]
+  {
+    questionImage:
+      "<img alt='view of Washington Monument through the trees' src='images/eoy-q1.jpg' width='100%'>",
+    question: "Without volunteers, Casey Trees did not plant in 2020.",
+    explanation:
+      "False! The show must go. Or rather, the trees must grow. Thanks to our meticulous planning and planting process, we have trees planted, picked, and shipped to DC from our Farm long before the volunteer events kick-off. We had trees to get in the ground, even if they were planted without the fanfare of volunteers.",
+    choice1: "True",
+    choice2: "False",
+    answer: 2,
+  },
+  {
+    questionImage:
+      "<img alt='new crew with old crew' src='images/eoy-q2.jpg' width='100%'>",
+    question:
+      "Casey Trees had to hire additional crew members to fill the gap left by the work of our volunteers.",
+    explanation:
+      "Yes! It’s true. Our volunteers work tirelessly throughout each weekend in the spring planting trees. Without their help, we had to hire XX crew members. Many hands make light work and while we don’t have nearly as many hands as we did with Team Leaders, Group Volunteers, etc, we certainly have more help! We are looking forward to expanding our work with volunteers and expanded crew in the coming seasons!",
+    choice1: "True",
+    choice2: "False",
+    answer: 1,
+  },
+  {
+    questionImage:
+      "<img alt='all the staff like it used to be' src='images/eoy-q3.jpg' width='100%'>",
+    question:
+      "Plantings feel the same without Citizen Foresters, volunteers, and community members.",
+    explanation:
+      "That could not be more false! Plantings without volunteers are (literally) all work and no play. While it feels great to continue our mission of planting trees, volunteers bring the spark, joy, and indescribable community feel to each and every planting. Crew member Alex said it best, “Volunteers  at a planting would give you extra energy - that drive to get you going since they want to be out there planting so badly.” Every day folks from every corner of the city, from different careers with different experiences coming together for a common goal - you can’t replicate that. We miss it dearly!",
+    choice1: "True",
+    choice2: "False",
+    answer: 2,
+  },
+  {
+    questionImage:
+      "<img alt='newly planted trees' src='images/eoy-q4.jpg' width='100%'>",
+    question:
+      "We planted almost half as many trees this year as we did last year. (Not just Community Tree Plantings, we’re talking about all planting programs including our residential plantings, community plantings, home plantings, etc).",
+    explanation:
+      "When we said many hands make light work, we weren’t kidding! Last year we planted over 4,440 trees. This year? Thanks to shutdowns, stay at home orders, necessary safety protocols, and additional pandemic logistical limitations, we’ve planted 2,418 trees. We’re incredibly proud of that number - but it goes to show what an impact our volunteers make.",
+    choice1: "True",
+    choice2: "False",
+    answer: 1,
+  },
+  {
+    questionImage:
+      "<img alt='casey tree farm' src='images/eoy-q5.jpg' width='100%'>",
+    question:
+      "We’ve cut back production at the Casey Tree Farm due to low planting numbers.",
+    explanation:
+      "We plan years in advance at the Casey Tree farm. Our fields are full of trees that are destined for greatness - destined to be planted in the District of the Columbia! Regardless of our planting numbers, the Farm keeps on producing, which is why we’re so thankful to our crew for their continued hard work getting trees in the ground. It’s also a huge reason we miss our volunteers - they help us accomplish so much! At the end of the day, it’s nice to know no matter what the universe throws at us, we’ll have trees to dig up in Virginia and plant in Washington.",
+    choice1: "True",
+    choice2: "False",
+    answer: 2,
+  },
+];
 
 //CONSTANTS
 const CORRECT_BONUS = 10;
 const MAX_QUESTIONS = 5;
 
 startGame = () => {
-    questionCounter = 0;
-    score = 0;
-    availableQuestions = [...questions];
-    //console.log(availableQuestions);
-    getNewQuestion();
+  questionCounter = 0;
+  score = 0;
+  availableQuestions = [...questions];
+  //console.log(availableQuestions);
+  getNewQuestion();
 };
 
 getNewQuestion = () => {
-   if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-        //go to the end page
-        return window.location.assign("https://connect.clickandpledge.com/w/Form/fde9cd97-fc42-4d0e-a5e5-1fbe1322bf83?trk=spring20quiz");
-      }
+  if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
+    //go to the end page
+    return window.location.assign(
+      "https://connect.clickandpledge.com/w/Form/75ace67d-9469-48de-a04f-3f86dfb86f7e?utm_source=leaflet&utm_medium=email&utm_campaign=eoy&utm_content=email3&trk=givingtuesday3"
+    );
+  }
 
-    questionCounter++;
-    progressText.innerText = `Question ${questionCounter}/${MAX_QUESTIONS}`;
-    //Update the progress bar
-    progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
+  questionCounter++;
+  progressText.innerText = `Question ${questionCounter}/${MAX_QUESTIONS}`;
+  //Update the progress bar
+  progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
 
+  const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+  currentQuestion = availableQuestions[questionIndex];
+  question.innerText = currentQuestion.question;
+  explanation.innerText = currentQuestion.explanation;
+  questionImage.innerHTML = currentQuestion.questionImage;
 
-    const questionIndex = Math.floor(Math.random() * availableQuestions.length);
-    currentQuestion = availableQuestions[questionIndex];
-    question.innerText = currentQuestion.question;
-    explanation.innerText = currentQuestion.explanation;
-    questionImage.innerHTML = currentQuestion.questionImage;
+  choices.forEach((choice) => {
+    const number = choice.dataset["number"];
+    choice.innerText = currentQuestion["choice" + number];
+  });
 
-    choices.forEach( choice => {
-        const number = choice.dataset['number'];
-        choice.innerText = currentQuestion['choice' + number];
-    });
-
-
-    availableQuestions.splice(questionIndex, 1);
-    acceptingAnswers = true;
+  availableQuestions.splice(questionIndex, 1);
+  acceptingAnswers = true;
 };
 
-choices.forEach(choice => {
-    choice.addEventListener("click", e => {
-        if(!acceptingAnswers) return;
+choices.forEach((choice) => {
+  choice.addEventListener("click", (e) => {
+    if (!acceptingAnswers) return;
 
-        acceptingAnswers=false;
-        const selectedChoice = e.target;
-        const selectedAnswer = selectedChoice.dataset["number"];
-        const correctAnswer = currentQuestion.answer;
+    acceptingAnswers = false;
+    const selectedChoice = e.target;
+    const selectedAnswer = selectedChoice.dataset["number"];
+    const correctAnswer = currentQuestion.answer;
 
-        console.log(choices, choices[correctAnswer-1].parentElement);
-        console.log(correctAnswer);
-        
-        const classToApply = 
-            selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
+    console.log(choices, choices[correctAnswer - 1].parentElement);
+    console.log(correctAnswer);
 
-            if (classToApply === "correct") {
-                incrementScore(CORRECT_BONUS);
-            }
+    const classToApply =
+      selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
 
-            if (classToApply === "incorrect") {
-                choices[correctAnswer-1].parentElement.classList.add("correct");
-            }
+    if (classToApply === "correct") {
+      incrementScore(CORRECT_BONUS);
+    }
 
-            console.log(questionImage.innerText);
-          
+    if (classToApply === "incorrect") {
+      choices[correctAnswer - 1].parentElement.classList.add("correct");
+    }
 
-        selectedChoice.parentElement.classList.add(classToApply);
-        explanation.classList.remove("correct-answer-hidden");
-        explanation.classList.add("correct-answer-showing");
+    console.log(questionImage.innerText);
 
-        setTimeout( () => {
-           //selectedChoice.parentElement.classList.remove(classToApply);
-           //choices[correctAnswer-1].parentElement.classList.remove("correct");
-           //explanation.classList.remove("correct-answer-showing");
-           //explanation.classList.add("correct-answer-hidden");
-            //getNewQuestion();
-        }, 2000)
+    selectedChoice.parentElement.classList.add(classToApply);
+    explanation.classList.remove("correct-answer-hidden");
+    explanation.classList.add("correct-answer-showing");
 
-        
-    });
+    setTimeout(() => {
+      //selectedChoice.parentElement.classList.remove(classToApply);
+      //choices[correctAnswer-1].parentElement.classList.remove("correct");
+      //explanation.classList.remove("correct-answer-showing");
+      //explanation.classList.add("correct-answer-hidden");
+      //getNewQuestion();
+    }, 2000);
+  });
 });
 
-nextquestion.addEventListener("click", e => {
-    getNewQuestion();
+nextquestion.addEventListener("click", (e) => {
+  getNewQuestion();
 
-    explanation.classList.remove("correct-answer-showing");
-    explanation.classList.add("correct-answer-hidden");
-        
-    for (var i = 0; i < choices.length; i++) {
-            choices[i].parentElement.classList.remove("correct", "incorrect");
-        }
+  explanation.classList.remove("correct-answer-showing");
+  explanation.classList.add("correct-answer-hidden");
 
-    questionImage.scrollIntoView();
-    
+  for (var i = 0; i < choices.length; i++) {
+    choices[i].parentElement.classList.remove("correct", "incorrect");
+  }
+
+  questionImage.scrollIntoView();
 });
 
-
-incrementScore = num => {
-    score += num;
-    scoreText.innerText = score;
+incrementScore = (num) => {
+  score += num;
+  scoreText.innerText = score;
 };
 
 startGame();
-
-

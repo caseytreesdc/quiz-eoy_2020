@@ -1,26 +1,47 @@
+:root {
+    /* colors */
+    --black: #000000;
+    --coffee: #2c1010;
+    --grey: #373737;
+    --silver: #e5e6e5;
+    --paper: #ffffff;
+    --cobalt: #3768b2;
+    --forest: #395940;
+    --moss: #7b9e81;
+    --khaki: #f2e397;
+    --yellow: #f0d13f;
+    --orange: #e18323;
+    --paarl: #a4532e;
+
+    /* fonts */
+    --cronos: cronos-pro, lato, zeitung-mono, sans-serif;
+    --lato: lato, cronos-pro, zeitung-mono, sans-serif;
+    --zeitung: zeitung-mono, cronos-pro, lato, sans-serif;
+}
+
 html {
     scroll-behavior: smooth;
-  }
+}
 
 .choice-container {
     display: flex;
     margin-bottom: 1.5rem;
     width: 100%;
     font-size: 1.8rem;
-    border: 0.1rem solid rgba(0,98,36,0.5);
+    border: 0.1rem solid rgba(57, 89, 64, 0.5);
     background-color: white;
 }
 
 .choice-container:hover {
     cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(0,98,36,0.5);
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(57, 89, 64, 0.5);
     transform: translateY(-0.1rem);
     transition: transform 150ms;
 }
 
 .choice-prefix {
     padding: 1.5rem 2.5rem;
-    background-color: rgb(0, 98, 36);
+    background-color: rgb(57, 89, 64);
     color: white;
 }
 
@@ -30,11 +51,11 @@ html {
 }
 
 .correct {
-    background-color: #28a745;
+    background-color: var(--moss);
 }
 
 .incorrect {
-    background-color: #dc3545;
+    background-color: var(--paarl);
 }
 
 /* HUD */
@@ -45,7 +66,7 @@ html {
 }
 
 .hud-prefix {
-    text-align:center;
+    text-align: center;
     font-size: 2rem;
 }
 
@@ -56,13 +77,13 @@ html {
 #progressBar {
     width: 20rem;
     height: 4rem;
-    border: 0.3rem solid #006224;
+    border: 0.3rem solid var(--forest);
     margin-top: 2rem;
 }
 
 #progressBarFull {
-    height:3.4rem;
-    background-color: #006224;
+    height: 3.4rem;
+    background-color: var(--forest);
     width: 0%;
 }
 
@@ -75,7 +96,8 @@ html {
     display: block;
 }
 
-p#explanation {font-size: 2rem;
+p#explanation {
+    font-size: 2rem;
 }
 
 /* HEADER */
@@ -84,12 +106,11 @@ header {
     padding: 20px 30px;
     position: relative;
     background: #fff;
-    box-shadow: 0px 0px 5px rgba(0,0,0,.5);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, .5);
 }
 
 #logo {
-    width: 140px;
-    height: 60px;
+    width: 200px;
 }
 
 /* NEXT QUESTION BUTTON */

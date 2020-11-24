@@ -1,43 +1,61 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap');
 
 :root {
-    background-color:#fff;
+    /* colors */
+    --black: #000000;
+    --coffee: #2c1010;
+    --grey: #373737;
+    --silver: #e5e6e5;
+    --paper: #ffffff;
+    --cobalt: #3768b2;
+    --forest: #395940;
+    --moss: #7b9e81;
+    --khaki: #f2e397;
+    --yellow: #f0d13f;
+    --orange: #e18323;
+    --paarl: #a4532e;
+
+    /* fonts */
+    --cronos: cronos-pro, lato, zeitung-mono, sans-serif;
+    --lato: lato, cronos-pro, zeitung-mono, sans-serif;
+    --zeitung: zeitung-mono, cronos-pro, lato, sans-serif;
+    background-color: #fff;
     font-size: 62.5%;
 }
 
-*{
+* {
     box-sizing: border-box;
     font-family: 'Lato', sans-serif, Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
-    color: #333;
+    color: var(--coffee);
 }
 
 h1,
 h2,
 h3,
 h4 {
-    margin-bottom:1rem;
+    margin-bottom: 1rem;
 }
 
 h1 {
     font-size: 5.4rem;
-    color: #006224;
+    color: var(--forest);
     margin-bottom: 5rem;
 }
 
-h1 > span {
+h1>span {
     font-size: 2.4rem;
     font-weight: 500;
 }
 
 h2 {
-    font-size: 4.2rem;
+    font-size: 2.2rem;
     margin-bottom: 4rem;
     font-weight: 700;
 }
 
-h{
+h {
     font-size: 2.8rem;
     font-weight: 500;
 }
@@ -57,9 +75,11 @@ h{
     max-width: 80rem;
     margin: 0 auto;
     padding: 2rem;
+    background: url(https://caseytrees.org/wp-content/uploads/2020/11/v2_graph.png);
+    background-size: 65em;
 }
 
-.container > * {
+.container>* {
     width: 100%;
 }
 
@@ -92,16 +112,16 @@ h{
     padding: 1rem 0;
     width: 20rem;
     text-align: center;
-    border: 0.1rem solid #006224;
+    border: 0.1rem solid var(--forest);
     margin-bottom: 1rem;
     text-decoration: none;
-    color: #006224;
+    color: var(--forest);
     background-color: white;
 }
 
 .btn:hover {
     cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(0,98,36,0.5);
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(0, 98, 36, 0.5);
     transform: translateY(-0.1rem);
     transition: transform 150ms;
 }
@@ -111,4 +131,3 @@ h{
     box-shadow: none;
     transform: none;
 }
-
