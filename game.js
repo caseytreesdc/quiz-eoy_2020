@@ -53,7 +53,7 @@ let questions = [
     questionImage:
       "<img alt='newly planted trees' src='images/eoy-q4.jpg' width='100%'>",
     question:
-      "We planted almost half as many trees this year as we did last year. (Not just Community Tree Plantings, we’re talking about all planting programs including our residential plantings, community plantings, home plantings, etc).",
+      "We planted almost half as many trees this year as we did last year. (Not just Community Tree Plantings, we’re talking about all planting programs including our residential plantings, community plantings, park plantings, etc).",
     explanation:
       "When we said many hands make light work, we weren’t kidding! Last year we planted over 4,440 trees. This year? Thanks to shutdowns, stay at home orders, necessary safety protocols, and additional pandemic logistical limitations, we’ve planted 2,418 trees. We’re incredibly proud of that number - but it goes to show what an impact our volunteers make.",
     choice1: "True",
@@ -66,7 +66,7 @@ let questions = [
     question:
       "We’ve cut back production at the Casey Tree Farm due to low planting numbers.",
     explanation:
-      "We plan years in advance at the Casey Tree farm. Our fields are full of trees that are destined for greatness - destined to be planted in the District of the Columbia! Regardless of our planting numbers, the Farm keeps on producing, which is why we’re so thankful to our crew for their continued hard work getting trees in the ground. It’s also a huge reason we miss our volunteers - they help us accomplish so much! At the end of the day, it’s nice to know no matter what the universe throws at us, we’ll have trees to dig up in Virginia and plant in Washington.",
+      "We plan years in advance at the Casey Tree Farm. Our fields are full of trees that are destined for greatness - destined to be planted in the District of the Columbia! Regardless of our planting numbers, the Farm keeps on producing, which is why we’re so thankful to our crew for their continued hard work getting trees in the ground. It’s also a huge reason we miss our volunteers - they help us accomplish so much! At the end of the day, it’s nice to know no matter what the universe throws at us, we’ll have trees to dig up in Virginia and plant in Washington.",
     choice1: "True",
     choice2: "False",
     answer: 2,
