@@ -33,7 +33,7 @@ let questions = [
     question:
       "Casey Trees had to hire additional crew members to fill the gap left by the work of our volunteers.",
     explanation:
-      "Yes! It’s true. Our volunteers work tirelessly throughout each weekend in the spring planting trees. Without their help, we had to hire XX crew members. Many hands make light work and while we don’t have nearly as many hands as we did with Team Leaders, Group Volunteers, etc, we certainly have more help! We are looking forward to expanding our work with volunteers and expanded crew in the coming seasons!",
+      "Yes! It’s true. Our volunteers work tirelessly throughout each weekend in the spring planting trees. Without their help, we had to hire 6 crew members. Many hands make light work and while we don’t have nearly as many hands as we did with Team Leaders, Group Volunteers, etc, we certainly have more help! We are looking forward to expanding our work with volunteers and expanded crew in the coming seasons!",
     choice1: "True",
     choice2: "False",
     answer: 1,
